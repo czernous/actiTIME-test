@@ -1,0 +1,25 @@
+{
+  "plugins": [
+    [
+      "@babel/plugin-transform-runtime",
+      {
+        "corejs": 3,
+        "regenerator": true,
+        "asyncGenerators": true,
+        "generators": true,
+        "async": true
+      }
+    ]
+  ],
+  "presets": [
+    [
+      "@babel/preset-env",
+      {
+        "useBuiltIns": "entry",
+        "debug": true,
+        "corejs": 3,
+        "targets": "> 0.25%, not dead"
+      }
+    ]
+  ]
+}

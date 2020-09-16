@@ -1,0 +1,75 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+@import 'variables';
+@import 'resets';
+@import 'Header';
+@import 'Content';
+@import 'Footer';
+
+/* Base styles */
+html {
+  box-sizing: border-box;
+  font-size: 62.5%;
+
+  /* Set font size for easy rem calculations
+   * default document font size = 16px, 1rem = 16px, 100% = 16px
+   * (100% / 16px) * 10 = 62.5%, 1rem = 10px, 62.5% = 10px
+  */
+}
+// Base styles
+body {
+  font-family: 'Roboto', sans-serif;
+  background: $clr-bg;
+  color: $clr-body-text;
+  font-size: 1.6rem;
+}
+h1,
+h2,
+h3,
+h4,
+h5 {
+  color: $clr-heading;
+}
+:hover {
+  transition: 0.3s ease;
+}
+.btn {
+  border-radius: 5rem;
+  border: none;
+  &--hamburger {
+    display: none;
+  }
+}
+
+.footer {
+  font-weight: 500;
+  width: 100%;
+}
+.header,
+.footer__container,
+.content {
+  max-width: 125.8rem;
+  width: 100%;
+  margin: 0 auto;
+  padding-right: 3.2rem;
+  padding-left: 3.2rem;
+}
+@media (max-width: 768px) {
+  .header,
+  .footer__container,
+  .features__header {
+    padding-right: 2.4rem;
+    padding-left: 2.4rem;
+  }
+  .content {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+@media (max-width: 380px) {
+  .header,
+  .footer__container,
+  .features__header {
+    padding-right: 2rem;
+    padding-left: 2rem;
+  }
+}

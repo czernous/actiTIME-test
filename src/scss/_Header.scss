@@ -1,0 +1,226 @@
+.header {
+  position: relative;
+  @extend %layout-header-footer;
+  &__logo {
+    @extend %layout-logo;
+  }
+  .nav {
+    &--mobile {
+      display: none;
+    }
+    &__menu {
+      margin-left: 13.1rem;
+      display: flex;
+      flex-direction: row;
+    }
+
+    &__item {
+      margin-right: 4.7rem;
+      position: relative;
+    }
+    &__link {
+      text-decoration: none;
+      color: $clr-heading;
+      font-size: 1.8rem;
+      &:hover {
+        color: $clr-purple;
+      }
+    }
+  }
+  &__btn:not(.btn--hamburger) {
+    position: absolute;
+    right: 1rem;
+    top: 3rem;
+    bottom: 3rem;
+    width: 18rem;
+    padding: 1.6rem 5.9rem;
+    color: $clr-white;
+    background: $clr-purple;
+    &:hover {
+      cursor: pointer;
+      background: $clr-purple--hover;
+    }
+  }
+}
+.dropdown {
+  &:after {
+    position: absolute;
+    bottom: 0.4rem;
+    left: 4rem;
+  }
+
+  &__menu {
+    visibility: hidden;
+    transform: scale(0);
+    transform-origin: 50px top;
+  }
+  &__item {
+    margin: 1.2rem 1.7rem 1.2rem 2.4rem;
+  }
+  &__link {
+    text-decoration: none;
+    font-size: 1.6rem;
+    font-weight: normal;
+    color: $clr-heading;
+    &:hover {
+      color: $clr-purple;
+    }
+  }
+}
+.dropdown {
+  &__menu--visible {
+    opacity: 1;
+    height: 100%;
+    max-height: 100rem;
+    visibility: visible;
+    transform: scale(1);
+  }
+}
+@media (min-width: 993px) {
+  .dropdown {
+    &:after {
+      content: url('../assets/arrow-small-down.svg');
+      position: absolute;
+      top: 0;
+      left: 4rem;
+    }
+    &:hover:after {
+      content: url('../assets/arrow-small-up.svg');
+    }
+    &__menu {
+      position: absolute;
+      width: 16.9rem;
+      height: 8.8rem;
+      top: 3.6rem;
+      left: 0;
+      background: $clr-white;
+      border: 0.1rem solid $clr-purple;
+      border-radius: 1rem;
+      box-shadow: 0px 4px 0px #e2cefe;
+      transition: all 1s ease;
+      &:before {
+        content: '';
+        display: block;
+        position: absolute;
+        left: 3.5rem;
+        bottom: 100%;
+        width: 0;
+        height: 0;
+        border: 1rem solid transparent;
+        border-bottom-color: $clr-purple;
+        transition: all 1s ease;
+      }
+      &:after {
+        content: '';
+        display: block;
+        position: absolute;
+        left: 3.6rem;
+        bottom: 100%;
+        width: 0;
+        height: 0;
+        border: 0.9rem solid transparent;
+        border-bottom-color: $clr-white;
+        transition: all 1s ease;
+      }
+    }
+  }
+}
+@media (max-width: 992px) {
+  .is-visible {
+    display: flex !important;
+  }
+  .header {
+    padding: 2.5rem 3.2rem;
+    background: $clr-white;
+    justify-content: space-between;
+    .btn--hamburger {
+      display: block;
+      border: none;
+      background: transparent;
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+    .nav {
+      &--primary {
+        display: none;
+      }
+      &--mobile {
+        flex-direction: column;
+        transition: all 1s ease;
+      }
+      &__menu {
+        position: absolute;
+        flex-direction: column;
+        margin-top: 4.1rem;
+        right: 0;
+        width: 99.9%;
+        height: 47.3rem;
+        background: transparent;
+        overflow: hidden;
+        z-index: 5;
+      }
+      &__item {
+        max-height: 6.1rem;
+        transition: all 1.2s ease;
+        &--signup {
+          width: 101%;
+          height: 14.8rem;
+          text-align: center;
+          background: $clr-white;
+          box-shadow: 0px 8px 0px rgba(0, 0, 0, 0.15);
+          .btn {
+            position: relative;
+            height: 6rem;
+            margin: 1rem auto 0 auto;
+          }
+        }
+      }
+      &__link {
+        display: block;
+        background: $clr-white;
+        align-items: center;
+        height: 6.2rem;
+        width: 125.8rem;
+        padding: 1.45rem 3.4rem;
+        margin: 0 0 -0.1rem -1.1rem;
+        border: 0.1rem solid $clr-mob-nav-border;
+        z-index: 2;
+      }
+    }
+
+    .dropdown {
+      &:after {
+        content: url('../assets/arrow-open.svg');
+        position: absolute;
+        top: 2.2rem;
+        left: 99%;
+      }
+      &:hover:after {
+        content: url('../assets/arrow-up.svg');
+      }
+      &__background {
+        position: absolute;
+        top: 0;
+        background: $clr-bg;
+        height: 60%;
+        width: 100%;
+        z-index: -1;
+      }
+      &__menu {
+        height: 0;
+        width: 110%;
+        margin-top: -0.11rem;
+        padding: 0 3rem;
+        background: $clr-bg;
+        transition: all 0.5s ease-in-out;
+        transform-origin: 50% top;
+        z-index: 0;
+      }
+      &__item {
+        padding: 1rem 0;
+      }
+    }
+  }
+}
